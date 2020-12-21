@@ -17,12 +17,12 @@ class UserController {
 
     @GetMapping("/users")
     fun index(): ResponseEntity<Iterable<User>> {
-        return ResponseEntity.ok(userDao.findAll());
+        return ResponseEntity.ok(userDao.findAll())
     }
 
     @GetMapping("/users/{id}")
     fun show(@PathVariable id: Long): ResponseEntity<User> {
-        return ResponseEntity.ok(userDao.findById(id).get());
+        return ResponseEntity.ok(userDao.findById(id).get())
     }
 
     @PutMapping("/users/{id}")
@@ -42,7 +42,6 @@ class UserController {
     @DeleteMapping("/users/{id}")
     fun destroy(@PathVariable id: Long): ResponseEntity<User> {
         userDao.deleteById(id)
-
         return ResponseEntity(HttpStatus.OK)
     }
 }
